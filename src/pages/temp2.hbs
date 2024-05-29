@@ -1,0 +1,151 @@
+{{!-- {{!-- import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import Spinners from '../components/Spinners'
+import { Link } from 'react-router-dom'
+// import {MdOutlineAddBox} from 'react-icons/md'
+
+function Dashboard() {
+  const [books,setBooks]=useState([])
+  const [loading,setLoading]=useState(false)
+  useEffect(()=>{
+    setLoading(true)
+    axios.get('http://localhost:3000/books').then((response)=>{
+      setBooks(response.data.data)
+      setLoading(false)
+    }).catch((err)=>{
+      console.log(err);
+    })
+  },[])
+  return (
+    <>
+    <div className='p-4'>
+      <div className='flex justify-content-between items-center'>
+    <Link to='/books/create'>
+    <i className='fa-solid fa-trash fa-2xl' style={{color:'#e1141e'}} />
+
+    {/* <MdOutlineAddBox className='text-sky-800 twxt-4xl' /> */}
+    </Link>
+      </div>
+      {
+        loading?(
+        <Spinners/>)
+        :
+        (
+          <table className='w-full border-separate border-spacing-2'>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th className='bg-gray-200 p-2'>Title</th>
+                <th>Author</th>
+                <th>Publish Year</th>
+                <th>Operations</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                books.map((book,index)=>(
+                    <tr key={book._id} className='h-8'>
+                      <td className='border text-center'>
+                        {index+1}
+                      </td>
+                      <td className='border text-center'>
+                        {book.title}
+                      </td>
+                      <td className='border text-center max-md:hidden'>
+                        {book.author}
+                        </td>
+                        <td className='border text-center max-md:hidden'>
+                        {book.publishYear}
+                        </td>
+                        <td className='border text-center max-md:hidden'>
+                        <div className='flex justify-center gap-x-4'>
+                        <Link to={'/books/details'} className='btn'>
+                        <i className="fa-solid fa-circle-info fa-2xl" />
+                        </Link>
+                        <Link to={'/books/edit'} className='btn x-1 y-3'>
+                        <i className='fa-solid fa-pen-to-square fa-2xl'/>
+                        </Link>
+                        <Link to={'/books/delete'} className='btn x-3' >
+                        <i className='fa-solid fa-trash fa-2xl' style={{color:'#e1141e'}} />
+                        </Link>
+                        </div>
+                        </td>
+                    </tr>
+                )
+              )}
+            </tbody>
+
+          </table>
+        )
+      }
+    </div>
+    </>
+  )
+}
+
+export default Dashboard --}}
+
+1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+
+{{!-- import React from 'react'
+import { useState } from 'react';
+import { Col, Row } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Form from 'react-bootstrap/Form';
+
+
+
+function Add() {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+  return (
+    <>
+    <div>
+        <button className='btn btn-info mb-4' onClick={handleShow}>
+                Add
+        </button>
+
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Modal title</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+            <Row>
+                <Col>
+                <img className='img-fluid' src="https://static.thenounproject.com/png/212328-200.png" alt="" />
+                </Col>
+                <Col>
+                <FloatingLabel controlId="titleinp" label="Title" className="mb-3">
+                    <Form.Control type="text" placeholder="Title" />
+                </FloatingLabel>
+                <FloatingLabel controlId="overview" label="Overview" className="mb-3">
+                    <Form.Control type="text" placeholder="Brief" />
+                </FloatingLabel>
+                <FloatingLabel controlId="github" label="Github Url" className="mb-3">
+                    <Form.Control type="text" placeholder="Github Url" />
+                </FloatingLabel>
+                </Col>
+            </Row>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="success">Save</Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
+    </>
+  )
+}
+
+export default Add --}} 
